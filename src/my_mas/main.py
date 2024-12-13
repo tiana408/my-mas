@@ -7,7 +7,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'career_preferences': 'Remote Software Development',
+        'career_preferences': 'QA Analyst, System Engineer',
         'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
         'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
@@ -19,7 +19,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'career_preferences': 'Remote Software Development',
+        'career_preferences': 'QA Analyst, System Engineer',
         'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
         'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
@@ -44,7 +44,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        'career_preferences': 'Remote Software Development',
+        'career_preferences': 'QA Analyst, System Engineer',
         'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
         'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
