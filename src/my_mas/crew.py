@@ -33,7 +33,7 @@ class MyMasCrew():
     def requirements_analyst(self) -> Agent:
         """Creates the Requirements Analyzer Agent for synthesizing job requirements"""
         return Agent(
-            config=self.agents_config['requirements_analyzer'],
+            config=self.agents_config['requirements_analyst'],
             verbose=True
             # Uncomment and add tools if needed
             # tools=[...]
@@ -74,7 +74,7 @@ class MyMasCrew():
     def career_advisor_task(self) -> Task:
         """Creates the Career Advisory Task for generating final recommendations"""
         return Task(
-            config=self.tasks_config['career_advisory_task'],
+            config=self.tasks_config['career_advisor_task'],
             output_file='career_report.md'
         )
 
