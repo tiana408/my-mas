@@ -53,21 +53,21 @@ class MyMasCrew():
     def career_analyst_task(self) -> Task:
         """Creates the Career Analysis Task for defining exploration framework"""
         return Task(
-            config=self.tasks_config['career_analysis_task'],
+            config=self.tasks_config['career_analyst_task'],
         )
 
     @task
     def market_researcher_task(self) -> Task:
         """Creates the Market Research Task for collecting industry data"""
         return Task(
-            config=self.tasks_config['market_research_task'],
+            config=self.tasks_config['market_researcher_task'],
         )
 
     @task
     def requirements_analyst_task(self) -> Task:
         """Creates the Requirements Analysis Task for synthesizing findings"""
         return Task(
-            config=self.tasks_config['requirements_analysis_task'],
+            config=self.tasks_config['requirements_analyst_task'],
         )
 
     @task

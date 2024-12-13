@@ -34,7 +34,7 @@ requirements_analyst_task:
     - Normalized comparative data
     - Skills and requirements matrix
     - Key insights for {key_requirements}
-  agent: requirements_analyzer
+  agent: requirements_analyst
 
 career_advisor_task:
   description: >
