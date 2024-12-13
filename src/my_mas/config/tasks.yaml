@@ -1,17 +1,50 @@
-research_task:
+career_analyst_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
+    Define comprehensive framework for analyzing {career_preferences} across {target_industries}.
+    Identify key evaluation criteria focusing on {key_requirements}.
+    Create a structured approach to systematically assess career opportunities and requirements.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A detailed career analysis document including:
+    - Comprehensive career evaluation framework
+    - Standardized assessment metrics
+    - Specific skill dimensions to analyze for {career_preferences}
+    - Assessment methodology aligned with {key_requirements}
+  agent: career_analyst
 
-reporting_task:
+market_researcher_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Collect and compile detailed information about {career_preferences} in {target_industries}.
+    Gather job requirements, salary ranges, industry trends, and market demands.
+    Validate data accuracy and comprehensiveness for {key_requirements}.
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A comprehensive data compilation including:
+    - Detailed job requirements for each industry
+    - Compensation information
+    - Aggregated market trends and forecasts
+    - Comparative data analysis highlighting {key_requirements}
+  agent: market_researcher
+
+requirements_analyst_task:
+  description: >
+    Synthesize collected information about {career_preferences} from {target_industries}.
+    Normalize and standardize data to create a coherent career opportunity analysis.
+    Highlight key insights and patterns across different industries.
+  expected_output: >
+    A synthesized research report containing:
+    - Normalized comparative data
+    - Skills and requirements matrix
+    - Key insights for {key_requirements}
+  agent: requirements_analyzer
+
+career_advisor_task:
+  description: >
+    Evaluate and rank career opportunities in {target_industries} based on established criteria.
+    Generate actionable insights and personalized career recommendations.
+    Create comprehensive career path analysis and development plan.
+  expected_output: >
+    A comprehensive career report including:
+    - Detailed opportunity ranking
+    - Scored evaluation against {key_requirements}
+    - Personalized career path recommendations
+    - Career development roadmap
+  agent: career_advisor

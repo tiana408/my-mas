@@ -1,24 +1,17 @@
 #!/usr/bin/env python
 import sys
-import warnings
-
-from my_mas.crew import MyMas
-
-warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# This main file is intended to be a way for you to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+from my_mas.crew import MyMasCrew
 
 def run():
     """
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs'
+        'career_preferences': 'Remote Software Development',
+        'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
+        'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
-    MyMas().crew().kickoff(inputs=inputs)
+    MyMasCrew().crew().kickoff(inputs=inputs)
 
 
 def train():
@@ -26,10 +19,12 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'career_preferences': 'Remote Software Development',
+        'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
+        'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
     try:
-        MyMas().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        MyMasCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -39,7 +34,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        MyMas().crew().replay(task_id=sys.argv[1])
+        MyMasCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -49,10 +44,12 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'career_preferences': 'Remote Software Development',
+        'target_industries': ['Technology', 'FinTech', 'Healthcare IT'],
+        'key_requirements': ['Work-Life Balance', 'Salary Range', 'Growth Opportunities', 'Technical Stack']
     }
     try:
-        MyMas().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        MyMasCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")

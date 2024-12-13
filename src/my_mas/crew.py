@@ -1,62 +1,89 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-# If you want to run a snippet of code before or after the crew starts, 
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+# Uncomment and import any custom tools if needed
+# from my_mas.tools.custom_tool import MyCustomTool
+# from crewai_tools import SerperDevTool
 
 @CrewBase
-class MyMas():
-	"""MyMas crew"""
+class MyMasCrew():
+    """Multi-Agent System for Career Exploration"""
 
-	# Learn more about YAML configuration files here:
-	# Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
-	# Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
-	agents_config = 'config/agents.yaml'
-	tasks_config = 'config/tasks.yaml'
+    @agent
+    def career_analyst(self) -> Agent:
+        """Creates the Career Analyst Agent for defining career exploration framework"""
+        return Agent(
+            config=self.agents_config['career_analyst'],
+            verbose=True
+            # Uncomment and add tools if needed
+            # tools=[...]
+        )
 
-	# If you would like to add tools to your agents, you can learn more about it here:
-	# https://docs.crewai.com/concepts/agents#agent-tools
-	@agent
-	def researcher(self) -> Agent:
-		return Agent(
-			config=self.agents_config['researcher'],
-			verbose=True
-		)
+    @agent
+    def market_researcher(self) -> Agent:
+        """Creates the Market Researcher Agent for industry data collection"""
+        return Agent(
+            config=self.agents_config['market_researcher'],
+            verbose=True
+            # Uncomment and add tools if needed
+            # tools=[...]
+        )
 
-	@agent
-	def reporting_analyst(self) -> Agent:
-		return Agent(
-			config=self.agents_config['reporting_analyst'],
-			verbose=True
-		)
+    @agent
+    def requirements_analyst(self) -> Agent:
+        """Creates the Requirements Analyzer Agent for synthesizing job requirements"""
+        return Agent(
+            config=self.agents_config['requirements_analyzer'],
+            verbose=True
+            # Uncomment and add tools if needed
+            # tools=[...]
+        )
 
-	# To learn more about structured task outputs, 
-	# task dependencies, and task callbacks, check out the documentation:
-	# https://docs.crewai.com/concepts/tasks#overview-of-a-task
-	@task
-	def research_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['research_task'],
-		)
+    @agent
+    def career_advisor(self) -> Agent:
+        """Creates the Career Advisor for generating recommendations"""
+        return Agent(
+            config=self.agents_config['career_advisor'],
+            verbose=True
+            # Uncomment and add tools if needed
+            # tools=[...]
+        )
 
-	@task
-	def reporting_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
-		)
+    @task
+    def career_analyst_task(self) -> Task:
+        """Creates the Career Analysis Task for defining exploration framework"""
+        return Task(
+            config=self.tasks_config['career_analysis_task'],
+        )
 
-	@crew
-	def crew(self) -> Crew:
-		"""Creates the MyMas crew"""
-		# To learn how to add knowledge sources to your crew, check out the documentation:
-		# https://docs.crewai.com/concepts/knowledge#what-is-knowledge
+    @task
+    def market_researcher_task(self) -> Task:
+        """Creates the Market Research Task for collecting industry data"""
+        return Task(
+            config=self.tasks_config['market_research_task'],
+        )
 
-		return Crew(
-			agents=self.agents, # Automatically created by the @agent decorator
-			tasks=self.tasks, # Automatically created by the @task decorator
-			process=Process.sequential,
-			verbose=True,
-			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
-		)
+    @task
+    def requirements_analyst_task(self) -> Task:
+        """Creates the Requirements Analysis Task for synthesizing findings"""
+        return Task(
+            config=self.tasks_config['requirements_analysis_task'],
+        )
+
+    @task
+    def career_advisor_task(self) -> Task:
+        """Creates the Career Advisory Task for generating final recommendations"""
+        return Task(
+            config=self.tasks_config['career_advisory_task'],
+            output_file='career_report.md'
+        )
+
+    @crew
+    def crew(self) -> Crew:
+        """Creates the Career Exploration Crew with sequential processing"""
+        return Crew(
+            agents=self.agents,  # Automatically created by the @agent decorator
+            tasks=self.tasks,    # Automatically created by the @task decorator
+            process=Process.sequential,
+            verbose=True
+        )
